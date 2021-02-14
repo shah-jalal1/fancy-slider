@@ -14,9 +14,9 @@ let sliders = [];
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 
-document.getElementById('search').addEventListener('keypress', function(event){
-  if(event.key == 'Enter') {
-      document.getElementById('search-btn').click();
+document.getElementById('search').addEventListener('keypress', function (event) {
+  if (event.key == 'Enter') {
+    document.getElementById('search-btn').click();
   }
 });
 
@@ -47,15 +47,16 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
+  
   element.classList.toggle('added');
- 
   let item = sliders.indexOf(img);
+ 
   if (item === -1) {
     sliders.push(img);
-  } // else {
-  //   // alert('Hey, Already added !')
-  //   // element.classList.remove('added');
-  // }
+  } else {
+    sliders.splice(item, 1); 
+  }
+
 }
 var timer
 const createSlider = () => {
@@ -78,13 +79,13 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
-  if(duration < 0) {
+  if (duration < 0) {
     alert("Negative duration not acceptable");
   }
-  else if(duration == 0) {
+  else if (duration == 0) {
     alert("0 duration not acceptable");
   }
-  else{
+  else {
     sliders.forEach(slide => {
       let item = document.createElement('div')
       item.className = "slider-item";
@@ -99,7 +100,7 @@ const createSlider = () => {
       changeSlide(slideIndex);
     }, duration);
   }
-  
+
 }
 
 // change slider index 
