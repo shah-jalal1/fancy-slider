@@ -143,13 +143,13 @@ sliderBtn.addEventListener('click', function () {
   createSlider()
 })
 
-// Extra feature spinner add
+// Extra feature spinner add.
 const toggleSpinner = () => {
   const spinner = document.getElementById('loading-spinner');
   spinner.classList.toggle('d-none');
 }
 
-// extra feature duration keyboard enter
+// extra feature duration keyboard enter.
 document.getElementById('duration').addEventListener('keypress', function (event) {
   if (event.key == 'Enter') {
     document.getElementById('create-slider').click();
